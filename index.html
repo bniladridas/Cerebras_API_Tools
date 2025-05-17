@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerebras Chat</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Cerebras Chat</h1>
+            <div class="settings">
+                <div class="setting">
+                    <label for="model-select">Model:</label>
+                    <select id="model-select">
+                        <option value="qwen-3-32b" selected>qwen-3-32b</option>
+                        <option value="qwen-3-72b">qwen-3-72b</option>
+                        <option value="llama-3-70b">llama-3-70b</option>
+                        <option value="llama-3-8b">llama-3-8b</option>
+                    </select>
+                </div>
+                <div class="setting">
+                    <label for="system-prompt">System Prompt:</label>
+                    <div class="prompt-container">
+                        <input type="text" id="system-prompt" placeholder="You are a helpful assistant." value="You are a helpful assistant.">
+                        <button id="cli-prompt-button" title="Use recommended CLI system prompt">Use CLI Prompt</button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div id="chat-container">
+                <div id="chat-messages"></div>
+            </div>
+
+            <div class="input-container">
+                <textarea id="user-input" placeholder="Type your message here..."></textarea>
+                <button id="send-button">Send</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>Powered by Cerebras API</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
