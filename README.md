@@ -1,4 +1,3 @@
-
 # Cerebras API Tools
 
 **Intelligence, unleashed.**  
@@ -8,7 +7,7 @@ Qwen3-32B on Cerebras Inference powers instant reasoning at 2,400 tokens per sec
 
 ## What You Get
 
-- **Cerebras CLI**: A sleek command-line tool for instant chat completions.  
+- **Cerebras CLI**: A sleek command-line tool for instant chat completions. ✅  
 - **Cerebras Web UI**: An intuitive interface for seamless model interaction.  
 
 ## Start in Minutes
@@ -17,7 +16,7 @@ Clone, configure, and build with ease.
 
 ```bash
 git clone https://github.com/bniladridas/Cerebras_API_Tools.git
-cd cerebras_infra
+cd Cerebras_API_Tools
 
 # Set your API key
 echo "CEREBRAS_API_KEY=your_api_key_here" > .env
@@ -155,3 +154,59 @@ Add your Cerebras API key:
 - **Ready**: Production-grade performance  
 
 **Build the future.** Harness Cerebras to create, innovate, and inspire.
+
+# Cerebras AI CLI ✅
+
+A simple command-line interface for interacting with the Cerebras AI API.
+
+## Prerequisites
+
+- C++ compiler with C++11 support
+- libcurl
+- nlohmann-json library
+
+## Installation
+
+1. Install the required dependencies:
+
+```bash
+# macOS
+brew install curl nlohmann-json
+```
+
+## Configuration
+
+1. Create a `.env` file in the project root directory:
+```
+CEREBRAS_API_KEY=your-api-key-here
+```
+
+Replace `your-api-key-here` with your actual Cerebras API key.
+
+## Compilation
+
+Compile the code with C++11 support:
+
+```bash
+g++ -std=c++11 -o cli cli.cpp -lcurl -I/opt/homebrew/include
+```
+
+## Usage
+
+Run the compiled program:
+
+```bash
+./cli
+```
+
+The program will start an interactive session where you can:
+- Type your questions to the AI
+- Get responses from the AI
+- Type 'exit' to quit
+
+## Features
+
+- Simple command-line interface
+- Secure API key management using .env file
+- JSON request/response handling
+- Error handling for API requests
