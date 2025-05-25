@@ -65,7 +65,61 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Initialize with a welcome message
-    addMessage('assistant', 'Welcome to Cerebras Chat! How can I help you today?');
+    addMessage('assistant', 'Welcome to our peaceful space for conversation. I\'m here to listen and support you in whatever way feels most helpful. Take your time, and share what\'s on your mind when you\'re ready.');
+
+    // Cookie Banner - Deeply Guided Presence
+    function initializeCookieBanner() {
+        const cookieBanner = document.getElementById('cookie-banner');
+        const cookieAccept = document.getElementById('cookie-accept');
+        const cookieLearnMore = document.getElementById('cookie-learn-more');
+
+        // Check if user has already consented
+        const cookieConsent = localStorage.getItem('cookieConsent');
+
+        if (!cookieConsent) {
+            // Show banner after a gentle delay
+            setTimeout(() => {
+                cookieBanner.style.display = 'block';
+            }, 2000);
+        }
+
+        // Handle accept button
+        cookieAccept.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'accepted');
+            localStorage.setItem('cookieConsentDate', new Date().toISOString());
+            cookieBanner.style.animation = 'slideDown 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            setTimeout(() => {
+                cookieBanner.style.display = 'none';
+            }, 400);
+
+            // Show gentle confirmation
+            showNotification('Thank you for your understanding. Your privacy remains protected.');
+        });
+
+        // Handle learn more button
+        cookieLearnMore.addEventListener('click', () => {
+            window.open('legal.html', '_blank');
+        });
+    }
+
+    // Add slideDown animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideDown {
+            from {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Initialize cookie banner
+    initializeCookieBanner();
 
     // Function to send a message
     async function sendMessage() {
